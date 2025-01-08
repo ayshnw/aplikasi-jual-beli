@@ -5,6 +5,51 @@
 // Dibuat oleh: Steven Marcell Samosir - NIM: 3312401003
 // Tanggal: 02 November
 -->
+<!-- 
+// Declaration
+DECLARE username AS STRING
+DECLARE password AS STRING
+DECLARE confirm_password AS STRING
+DECLARE email AS STRING
+DECLARE role AS STRING
+DECLARE db_connection AS DatabaseConnection
+
+//Implementation
+MENAMPILKAN "Halaman Registrasi"
+FORMULIR = Menampilkan_formulir("username", "password", "confirm_password", "email", "role")
+
+INPUT username
+INPUT password
+INPUT confirm_password
+INPUT email
+INPUT role
+
+db_connection = OPEN CONNECTION TO 'astore'
+
+IF db_connection IS NOT NULL THEN
+    //Memeriksa validasi input
+    IF username AND password AND confirm_password != empty
+        IF username_belumDiregistrasi THEN
+            IF password = :confirm_password
+                IF email VALID THEN
+                    MENAMPILKAN "Registrasi Berhasil"
+                ELSE
+                    MENAMPILKAN "Email tidak valid"
+                ENDIF
+            ELSE
+                MENAMPILKAN "password tidak sesuai"
+            ENDIF
+        ELSE
+            MENAMPILKAN "Username sudah diregistrasi"
+        ENDIF
+    ELSE
+        MENAMPILKAN "Semua kolom wajib diisi"
+    ENDIF
+ELSE
+    MENAMPILKAN "Gagal koneksi ke database"
+
+CLOSE db_connection
+-->
 
 <?php
 // Memulai session
