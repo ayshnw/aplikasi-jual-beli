@@ -5,6 +5,47 @@
 // Dibuat oleh: Steven Marcell Samosir - NIM: 3312401003
 // Tanggal: 02 November
 -->
+<!--
+// Declaration
+DECLARE username AS STRING
+DECLARE password AS STRING
+DECLARE role AS STRING
+DECLARE db_connection AS DatabaseLogin
+
+// Implementasi
+MENAMPILKAN "Halaman Login"
+FORMULIR = Menampilkan_Formulir("username", "password", "role")
+
+INPUT username
+INPUT password
+INPUT role
+
+db_connection = OPEN CONNECTION TO 'astore'
+
+IF db_connection IS NOT NULL THEN
+    EXECUTE QUERY 'SELECT username, password, role FROM users WHERE username = :username'
+    IF username AND password != empty
+        IF username = :username
+            IF password = :password
+                IF role = :role
+                    MENAMPILKAN "Login Berhasil"
+                ELSE
+                    MENAMPILKAN "Username atau password salah"
+                ENDIF
+            ELSE
+                MENAMPILKAN "Username atau password salah"
+            ENDIF
+        ELSE
+            MENAMPILKAN "Username atau password salah"
+        ENDIF
+    ELSE
+        MENAMPILKAN "Semua kolom wajib diisi"
+    ENDIF
+ELSE
+    MENAMPILKAN "Gagal koneksi ke database"
+
+CLOSE db_connection
+-->
 
 <?php
 // Memulai session
